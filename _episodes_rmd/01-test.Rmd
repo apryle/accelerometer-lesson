@@ -1,5 +1,5 @@
 ---
-title: "Analyzing Patient Data"
+title: "Apryle Attempt"
 teaching: 45
 exercises: 0
 questions:
@@ -44,18 +44,25 @@ knitr_fig_path("01-test-")
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+We are studying inflammation in patients who have been given a new treatment for arthritis,
+and need to analyze the first dozen data sets.
+The data sets are stored in [comma-separated values]({{ page.root }}/reference.html#comma-separated-values-csv) (CSV) format. Each row holds the observations for just one patient. Each column holds the inflammation measured in a day, so we have a set of values in successive days.
+The first few rows of our first file look like this:
 
-```{r cars}
-summary(cars)
+```{r echo = FALSE}
+tmp <- read.csv("data/test-data.csv", header = FALSE, nrows = 5)
+write.table(tmp, quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE)
+rm(tmp)
+
+plot(tmp$V3~tmp$V4)
 ```
 
-## Including Plots
+We want to:
 
-You can also embed plots, for example:
+* Load data into memory,
+* Calculate the average value of inflammation per day across all patients, and
+* Plot the results.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+To do all that, we'll have to learn a little bit about programming.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Loading Data
