@@ -1,0 +1,33 @@
+---
+title: "Using Accelerometers to Categorize Deer Behavior"
+teaching: 45
+exercises: 0
+source: Rmd
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("01-overview-")
+```
+
+## Using Tri-axial Accelerometion to Predict Behaviors
+
+In this lesson, we use acceleration values collected in 3 dimensions (front/back, left/right, up/down) to categorize behavior of free-ranging deer. 
+
+steps:
+- "Extract ACC data from hard drives"
+- "Annotate video behaviors"
+- "Merge video and ACC by date/time stamp"
+- "Merge/collapse behavior categories as needed"
+- "Subset data to simplest case: Pure/single behaviors only"
+- "Separate static & dynamic acceleration using filter"
+- "Convert dynamic acceleration to frequency domain" - find references
+- "Split into training, validation, and test data"
+- "PCA on training data"
+- "Use PCs in logistic regression"
+- "Rotate/project (note: apply same scaling/centering as was used in training)"
+- "Use logistic regression model to ???"
